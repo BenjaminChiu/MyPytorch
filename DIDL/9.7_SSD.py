@@ -235,6 +235,7 @@ def bbox_eval(bbox_preds, bbox_labels, bbox_masks):
     return ((bbox_labels - bbox_preds) * bbox_masks).abs().float().sum().item()
 
 
+# 本模型的损失函数有较大问题，shape对不上！
 if __name__ == '__main__':
     # 训练模型， 没有评价测试数据集
 
