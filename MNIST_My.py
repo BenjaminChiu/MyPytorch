@@ -18,9 +18,9 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # 熟悉 理解Compose
 
 # 载入数据集
-train_datasets = torchvision.datasets.MNIST(root='D:\DeepLearning_Data', train=True,
+train_datasets = torchvision.datasets.MNIST(root='D:/DeepLearning_Data', train=True,
                                             transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1037,), (0.3081,))]))
-test_datasets = torchvision.datasets.MNIST(root='D:\DeepLearning_Data', train=False,
+test_datasets = torchvision.datasets.MNIST(root='D:/DeepLearning_Data', train=False,
                                            transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1037,), (0.3081,))]))
 
 train_loader = torch.utils.data.DataLoader(train_datasets, batch_size=BATCH_SIZE, shuffle=True)

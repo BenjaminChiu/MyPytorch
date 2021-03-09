@@ -9,7 +9,7 @@ import utils.d2lzh_pytorch as d2l
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
-## 定义LeNet模型
+# 定义LeNet模型
 class LeNet(nn.Module):
     def __init__(self):
         super(LeNet, self).__init__()
@@ -41,7 +41,7 @@ class LeNet(nn.Module):
 net = LeNet().to(DEVICE)
 print(net)
 
-## 获取数据和训练模型
+# 获取数据和训练模型
 
 batch_size = 256
 train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)
