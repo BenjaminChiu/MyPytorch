@@ -11,8 +11,8 @@ from torchsummary import summary
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 n = 2
-x = torch.unsqueeze(torch.linspace(-2, 2, 100), dim=1)  # dim=0列 dim=1行   （100,1）
-y = x.pow(3) + 0.2 * torch.rand(x.size())  # pow平方
+x = torch.unsqueeze(torch.linspace(-1, 2, 100), dim=1)  # 在区间[-1, 2]之间生成100个均匀分布的数。dim=0列 dim=1行   （100,1）
+y = x.pow(2) + 0.2 * torch.rand(x.size())  # pow平方
 
 x, y = Variable(x).to(DEVICE), Variable(y).to(DEVICE)
 

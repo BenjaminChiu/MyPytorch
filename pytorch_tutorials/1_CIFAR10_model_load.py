@@ -18,7 +18,7 @@ import torch.optim as optim
 
 # 使用GPU训练
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-PATH = 'D:\DeepLearning_Data\MyModel\cifar_net.pth'
+PATH = 'D:/DeepLearning_Data/MyModel/cifar_net.pth'
 
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 # 测试数据加载器

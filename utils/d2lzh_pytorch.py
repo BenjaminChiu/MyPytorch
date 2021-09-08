@@ -1064,7 +1064,7 @@ class PikachuDetDataset(torch.utils.data.Dataset):
         return sample
 
 
-def load_data_pikachu(batch_size, edge_size=256, data_dir='D:/DeepLearning_Data/pikachu'):
+def load_data_pikachu(batch_size, edge_size=256, data_dir='C:\Develop\DL_Data\pikachu'):
     """edge_size：输出图像的宽和高"""
     image_size = (edge_size, edge_size)
     train_dataset = PikachuDetDataset(data_dir, 'train', image_size)

@@ -17,7 +17,7 @@ from PIL import Image
 
 import utils.d2lzh_pytorch as d2l
 
-DATA_DIR = 'D:/DeepLearning_Data/pikachu'
+DATA_DIR = 'C:/Develop/DL_Data/pikachu'
 
 # 断言 校验是否存在pikachu/train路径
 assert os.path.exists(os.path.join(DATA_DIR, "train"))

@@ -20,6 +20,12 @@ DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # 类别预测层，输出通道：预测q+1个类别；因框架原因实现动态 输入通道数
 def cls_predictor(num_anchors, num_classes, i):
+    """
+    :param num_anchors:
+    :param num_classes:
+    :param i:
+    :return:
+    """
     if i == 0:
         in_channel = 64
     else:

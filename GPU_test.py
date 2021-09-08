@@ -25,21 +25,30 @@ print(torch.__version__)
 #         mc.do_self()
 
 
-tensor = torch.rand(5, 3)
+# tensor = torch.rand(5, 3)
+#
+# x = torch.ones(2, 2, requires_grad=True)
+#
+# y = x + 2
+# y.grad_fn
+#
+# z = y * y * 3
+# out = z.mean()
+#
+# out.backward()
+#
+# print(str(tensor))
+# print('x:'+str(x))
+# print('y:'+str(y))
+# print('z:'+str(z))
+# print('out:'+str(out))
+# print('x.grad:'+str(x.grad))
 
-x = torch.ones(2, 2, requires_grad=True)
 
-y = x + 2
-y.grad_fn
+X = torch.tensor([[1, 2, 3], [4, 5, 6]])
 
-z = y * y * 3
-out = z.mean()
-
-out.backward()
-
-print(str(tensor))
-print('x:'+str(x))
-print('y:'+str(y))
-print('z:'+str(z))
-print('out:'+str(out))
-print('x.grad:'+str(x.grad))
+print(X)
+print(X[0, :])  # 索引第1行
+print(X[1, :])  # 索引第2行
+print(X[:, 0])  # 索引第1列
+print(X[:, 1])  # 索引第2列

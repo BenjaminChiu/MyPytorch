@@ -11,20 +11,19 @@ import torch.optim as optim
 
 # 使用GPU训练
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
+DATA_URL = "C:/A.Drive/Develop/DL_Data/CIFAR"
 # 读取、归一化CIFAR10
 # 图像预处理步骤
 
 
-transform = transforms.Compose([transforms.ToTensor(),
-                                transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 # 训练数据加载器
-trainset = torchvision.datasets.CIFAR10(root="D:\DeepLearning_Data\CIFAR", train=True, download=False, transform=transform)
+trainset = torchvision.datasets.CIFAR10(root=DATA_URL, train=True, download=False, transform=transform)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
 
 # 测试数据加载器
-testset = torchvision.datasets.CIFAR10(root="D:\DeepLearning_Data\CIFAR", train=False, download=False, transform=transform)
+testset = torchvision.datasets.CIFAR10(root=DATA_URL, train=False, download=False, transform=transform)
 testloader = torch.utils.data.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
 # 图像类别
@@ -47,9 +46,9 @@ class Net(nn.Module):
         super(Net, self).__init__()
         # 1 input image channel, 6 output channels, 3x3 square convolution kernel
         # 1个输入图片通道，6个输出通道，3 * 3的卷积核
-        self.conv1 = nn.Conv2d(3, 6, 5)
+        self.conv1 = nn.Conv2d(3, 6, 3)
         self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.conv2 = nn.Conv2d(6, 16, 3)
 
         # an affine operation: y = Wx + b
         # 6*6 from image dimension
@@ -65,9 +64,9 @@ class Net(nn.Module):
         # x = F.max_pool2d(F.relu(self.conv2(x)), 2)
 
         x = self.pool(F.relu(self.conv1(x)))
-        x = self.pool(F.relu(self.conv2(x)))
+        # x = self.pool(F.relu(self.conv2(x)))
         # x = F.max_pool2d(F.relu(self.conv3(x)), 4)
-        x = x.view(-1, 16 * 5 * 5)  # -1 是指 优先匹配后面的列，行自动生成
+        x = x.view(-1, 16 * 5 * 5)  # reshape x(tensor)    -1 是指 优先匹配后面的列，行自动生成
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = self.fc3(x)
