@@ -4,9 +4,8 @@ from torch.autograd import Variable
 import torch.nn.functional as F
 import matplotlib.pylab as plt
 from torchsummary import summary
-
 # import os
-#
+
 # os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
